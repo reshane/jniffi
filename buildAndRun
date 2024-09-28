@@ -1,0 +1,11 @@
+#! /bin/bash
+
+set -e
+
+cargo build
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(pwd)/target/debug
+
+javac -h ./src ./src/HelloWorld.java
+
+java -Djava.library.paht=$(pwd)/target/debug -classpath ./src/ HelloWorld
