@@ -1,0 +1,5 @@
+#! /bin/bash
+
+curl -X POST 'http://localhost:6969/test' -H 'content-type: image/png' \
+    --data-binary '@./poison_ivy.png' \
+    -o ./response.png

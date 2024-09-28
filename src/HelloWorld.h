@@ -15,6 +15,14 @@ extern "C" {
 JNIEXPORT jstring JNICALL Java_HelloWorld_hello
   (JNIEnv *, jclass, jstring);
 
+/*
+ * Class:     HelloWorld
+ * Method:    helloBytes
+ * Signature: ([B)[B
+ */
+JNIEXPORT jbyteArray JNICALL Java_HelloWorld_helloBytes
+  (JNIEnv *, jclass, jbyteArray);
+
 #ifdef __cplusplus
 }
 #endif
