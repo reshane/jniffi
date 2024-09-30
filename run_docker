@@ -1,0 +1,5 @@
+#! /bin/bash
+set -e
+
+#sudo docker run -it --rm --name jniffi jniffi /bin/bash
+sudo docker run -it --rm -p 6969:6969 --name jniffi -d jniffi

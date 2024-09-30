@@ -2,10 +2,12 @@
 
 set -e
 
+cp ./model1.pt ./target/debug/
+
 cargo build
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(pwd)/target/debug
 
-javac -h ./src ./src/HelloWorld.java
+javac -h ./target/java ./src/java/*.java -d ./target/java
 
-java -Djava.library.paht=$(pwd)/target/debug -classpath ./src/ HelloWorld
+./run

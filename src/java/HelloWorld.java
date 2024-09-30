@@ -27,16 +27,24 @@ public class HelloWorld {
     static class MyHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange t) throws IOException {
-            InputStream is = t.getRequestBody();
+            if (t.getRequestMethod().equals("POST")) {
+                InputStream is = t.getRequestBody();
 
-            byte[] bytes = is.readAllBytes();
-            is.close();
+                byte[] bytes = is.readAllBytes();
+                is.close();
 
-            byte[] resp = HelloWorld.helloBytes(bytes);
+                byte[] resp = HelloWorld.helloBytes(bytes);
 
-            t.sendResponseHeaders(200, resp.length);
+                t.sendResponseHeaders(200, resp.length);
+                OutputStream os = t.getResponseBody();
+                os.write(resp);
+                os.close();
+                return;
+            }
+            String resp = HelloWorld.hello("shane");
+            t.sendResponseHeaders(200, resp.length());
             OutputStream os = t.getResponseBody();
-            os.write(resp);
+            os.write(resp.getBytes());
             os.close();
         }
     }

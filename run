@@ -1,0 +1,4 @@
+#! /bin/bash
+set -e
+
+java -Djava.library.paht=$(pwd)/target/debug -classpath $(pwd)/target/java/ HelloWorld

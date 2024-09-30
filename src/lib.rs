@@ -36,8 +36,9 @@ pub extern "system" fn Java_HelloWorld_helloBytes<'local>(
         .expect("Could not get java byte[] from env");
 
     let image = image_handler::get_image_from_bytes(input.to_vec());
-    let resized = image_handler::resize_dynamic_image(240, 240, image);
+    let resized = image_handler::resize_dynamic_image(244, 244, image);
     let bytes: Vec<u8> = image_handler::get_png_bytes(resized);
+    // image_handler::predict_on_image(bytes.clone());
 
     let output = env.byte_array_from_slice(&bytes)
         .expect("Could not create java byte[]!");

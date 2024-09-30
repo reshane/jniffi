@@ -35,3 +35,4 @@ pub fn get_png_bytes(img: DynamicImage) -> Vec<u8> {
     ).expect("Could not resize image!");
     bytes
 }
+
